@@ -54,7 +54,6 @@ class DnsProtocol(asyncio.StreamReaderProtocol):
         wire_len_p = struct.pack('!H', wire_len)
         self.writer.write(wire_len_p)
         self.writer.write(wire)
-        print(wire)
         yield from self.writer.drain()
 
     @asyncio.coroutine
